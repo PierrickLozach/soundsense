@@ -40,12 +40,12 @@ interface Appliance {
 }
 
 const APPLIANCES: Appliance[] = [
-  { id: 'fridge', name: 'Réfrigérateur', icon: '🧊', commonIssues: ['Compresseur défaillant', 'Joint usé', 'Ventilateur bloqué'], listenDuration: 30 },
-  { id: 'washer', name: 'Lave-linge', icon: '🫧', commonIssues: ['Roulement usé', 'Pompe défectueuse', 'Courroie détendue'], listenDuration: 60 },
-  { id: 'dryer', name: 'Sèche-linge', icon: '♨️', commonIssues: ['Filtre encrassé', 'Tambour désaxé', 'Résistance défaillante'], listenDuration: 45 },
-  { id: 'dishwasher', name: 'Lave-vaisselle', icon: '🍽️', commonIssues: ['Pompe bruyante', 'Bras de lavage bloqué', 'Fuite'], listenDuration: 45 },
-  { id: 'hvac', name: 'Climatisation', icon: '❄️', commonIssues: ['Compresseur fatigué', 'Manque de gaz', 'Ventilateur encrassé'], listenDuration: 30 },
-  { id: 'boiler', name: 'Chaudière', icon: '🔥', commonIssues: ['Circulateur défaillant', 'Pression anormale', 'Brûleur encrassé'], listenDuration: 30 },
+  { id: 'fridge', name: 'Refrigerator', icon: '🧊', commonIssues: ['Failing compressor', 'Worn seal', 'Blocked fan'], listenDuration: 30 },
+  { id: 'washer', name: 'Washing Machine', icon: '🫧', commonIssues: ['Worn bearing', 'Defective pump', 'Loose belt'], listenDuration: 60 },
+  { id: 'dryer', name: 'Dryer', icon: '♨️', commonIssues: ['Clogged filter', 'Misaligned drum', 'Failing heating element'], listenDuration: 45 },
+  { id: 'dishwasher', name: 'Dishwasher', icon: '🍽️', commonIssues: ['Noisy pump', 'Blocked spray arm', 'Leak'], listenDuration: 45 },
+  { id: 'hvac', name: 'Air Conditioner', icon: '❄️', commonIssues: ['Tired compressor', 'Low refrigerant', 'Dirty fan'], listenDuration: 30 },
+  { id: 'boiler', name: 'Boiler', icon: '🔥', commonIssues: ['Failing circulator', 'Abnormal pressure', 'Dirty burner'], listenDuration: 30 },
 ];
 
 export default function SoundSense() {
@@ -133,29 +133,29 @@ export default function SoundSense() {
         status: 'healthy' as const,
         confidence: 94,
         findings: [
-          { type: 'Cycle normal', description: 'Tous les cycles sonores correspondent aux patterns de référence', severity: 'info' as const },
-          { type: 'Vibrations', description: 'Niveau de vibration dans la norme', severity: 'info' as const }
+          { type: 'Normal cycle', description: 'All sound cycles match reference patterns', severity: 'info' as const },
+          { type: 'Vibrations', description: 'Vibration level within normal range', severity: 'info' as const }
         ],
-        recommendations: ['Continuez la maintenance régulière', 'Prochain check recommandé dans 3 mois'],
+        recommendations: ['Continue regular maintenance', 'Next check recommended in 3 months'],
         estimatedSavings: 0
       },
       {
         status: 'warning' as const,
         confidence: 87,
         findings: [
-          { type: 'Anomalie sonore', description: 'Léger cliquetis détecté pendant le cycle', severity: 'warning' as const },
-          { type: 'Fréquence inhabituelle', description: 'Harmonique à 120Hz supérieure à la normale (+15%)', severity: 'warning' as const },
-          { type: 'Cycle', description: 'Durée de cycle légèrement allongée', severity: 'info' as const }
+          { type: 'Sound anomaly', description: 'Slight clicking detected during cycle', severity: 'warning' as const },
+          { type: 'Unusual frequency', description: 'Harmonic at 120Hz higher than normal (+15%)', severity: 'warning' as const },
+          { type: 'Cycle', description: 'Cycle duration slightly extended', severity: 'info' as const }
         ],
         predictedFailure: {
           component: appliance.commonIssues[Math.floor(Math.random() * appliance.commonIssues.length)],
-          timeframe: '2-4 semaines',
+          timeframe: '2-4 weeks',
           urgency: 'medium' as const
         },
         recommendations: [
-          'Planifier une inspection dans les 2 semaines',
-          'Surveiller l\'évolution du bruit',
-          'Vérifier les fixations et joints'
+          'Schedule an inspection within 2 weeks',
+          'Monitor noise evolution',
+          'Check fixings and seals'
         ],
         estimatedSavings: 180
       },
@@ -163,20 +163,20 @@ export default function SoundSense() {
         status: 'critical' as const,
         confidence: 91,
         findings: [
-          { type: 'Bruit anormal', description: 'Grincement métallique détecté', severity: 'danger' as const },
-          { type: 'Roulement', description: 'Signature sonore compatible avec roulement usé', severity: 'danger' as const },
-          { type: 'Vibration excessive', description: 'Amplitude 3x supérieure à la normale', severity: 'warning' as const }
+          { type: 'Abnormal noise', description: 'Metallic grinding detected', severity: 'danger' as const },
+          { type: 'Bearing', description: 'Sound signature consistent with worn bearing', severity: 'danger' as const },
+          { type: 'Excessive vibration', description: 'Amplitude 3x higher than normal', severity: 'warning' as const }
         ],
         predictedFailure: {
           component: appliance.commonIssues[0],
-          timeframe: '3-7 jours',
+          timeframe: '3-7 days',
           urgency: 'high' as const
         },
         recommendations: [
-          '⚠️ Intervention urgente recommandée',
-          'Éviter d\'utiliser l\'appareil si possible',
-          'Contacter un technicien rapidement',
-          'Préparer le remplacement si réparation >50% valeur'
+          '⚠️ Urgent intervention recommended',
+          'Avoid using the appliance if possible',
+          'Contact a technician quickly',
+          'Prepare for replacement if repair >50% value'
         ],
         estimatedSavings: 450
       }
@@ -227,14 +227,14 @@ export default function SoundSense() {
               <div className="text-4xl">🔊</div>
               <div>
                 <h1 className="text-3xl font-bold text-white">SoundSense</h1>
-                <p className="text-blue-300">Diagnostic d&apos;appareils par analyse sonore IA</p>
+                <p className="text-blue-300">AI-powered appliance diagnostics via sound analysis</p>
               </div>
             </div>
             <button
               onClick={() => setShowHistory(!showHistory)}
               className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
             >
-              📋 Historique ({recordings.length})
+              📋 History ({recordings.length})
             </button>
           </div>
         </div>
@@ -245,10 +245,10 @@ export default function SoundSense() {
         <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 rounded-2xl p-6 mb-8">
           <div className="grid grid-cols-4 gap-4 text-center">
             {[
-              { value: '€320', label: 'Économie moyenne/an', icon: '💰' },
-              { value: '89%', label: 'Précision diagnostic', icon: '🎯' },
-              { value: '2-4 sem', label: 'Alerte avant panne', icon: '⏰' },
-              { value: '30 sec', label: 'Temps d\'analyse', icon: '⚡' }
+              { value: '$320', label: 'Avg savings/year', icon: '💰' },
+              { value: '89%', label: 'Diagnostic accuracy', icon: '🎯' },
+              { value: '2-4 wks', label: 'Warning before failure', icon: '⏰' },
+              { value: '30 sec', label: 'Analysis time', icon: '⚡' }
             ].map((stat, i) => (
               <div key={i}>
                 <div className="text-2xl mb-1">{stat.icon}</div>
@@ -262,7 +262,7 @@ export default function SoundSense() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Appliance Selection */}
           <div>
-            <h2 className="text-xl font-semibold text-white mb-4">1. Sélectionne ton appareil</h2>
+            <h2 className="text-xl font-semibold text-white mb-4">1. Select your appliance</h2>
             <div className="grid grid-cols-2 gap-3">
               {APPLIANCES.map(appliance => (
                 <button
@@ -279,7 +279,7 @@ export default function SoundSense() {
                 >
                   <div className="text-3xl mb-2">{appliance.icon}</div>
                   <div className="text-white font-medium">{appliance.name}</div>
-                  <div className="text-xs text-white/50 mt-1">~{appliance.listenDuration}s d&apos;écoute</div>
+                  <div className="text-xs text-white/50 mt-1">~{appliance.listenDuration}s listening</div>
                 </button>
               ))}
             </div>
@@ -287,12 +287,12 @@ export default function SoundSense() {
 
           {/* Recording Section */}
           <div>
-            <h2 className="text-xl font-semibold text-white mb-4">2. Lance l&apos;analyse</h2>
+            <h2 className="text-xl font-semibold text-white mb-4">2. Start analysis</h2>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               {!selectedAppliance ? (
                 <div className="text-center py-12 text-white/50">
                   <div className="text-4xl mb-4">👆</div>
-                  <p>Sélectionne d&apos;abord un appareil à diagnostiquer</p>
+                  <p>First select an appliance to diagnose</p>
                 </div>
               ) : isRecording ? (
                 <div className="text-center py-8">
@@ -304,9 +304,9 @@ export default function SoundSense() {
                       <span className="text-4xl">{selectedAppliance.icon}</span>
                     </div>
                   </div>
-                  <div className="text-white font-medium mb-2">Écoute en cours...</div>
+                  <div className="text-white font-medium mb-2">Listening...</div>
                   <div className="text-white/60 text-sm mb-4">
-                    Place ton téléphone près de l&apos;appareil
+                    Place your phone near the appliance
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-3 mb-4">
                     <div 
@@ -318,7 +318,7 @@ export default function SoundSense() {
                     onClick={stopRecording}
                     className="px-6 py-2 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors"
                   >
-                    Annuler
+                    Cancel
                   </button>
                 </div>
               ) : currentAnalysis ? (
@@ -332,19 +332,19 @@ export default function SoundSense() {
                       </span>
                       <div>
                         <div className="font-bold text-lg capitalize">
-                          {currentAnalysis.status === 'healthy' ? 'Appareil en bonne santé' :
-                           currentAnalysis.status === 'warning' ? 'Attention requise' :
-                           'Intervention urgente'}
+                          {currentAnalysis.status === 'healthy' ? 'Appliance is healthy' :
+                           currentAnalysis.status === 'warning' ? 'Attention required' :
+                           'Urgent intervention'}
                         </div>
                         <div className="text-sm opacity-80">
-                          Confiance : {currentAnalysis.confidence}%
+                          Confidence: {currentAnalysis.confidence}%
                         </div>
                       </div>
                     </div>
                     {currentAnalysis.estimatedSavings > 0 && (
                       <div className="text-right">
-                        <div className="text-sm opacity-80">Économie potentielle</div>
-                        <div className="text-xl font-bold">€{currentAnalysis.estimatedSavings}</div>
+                        <div className="text-sm opacity-80">Potential savings</div>
+                        <div className="text-xl font-bold">${currentAnalysis.estimatedSavings}</div>
                       </div>
                     )}
                   </div>
@@ -353,11 +353,11 @@ export default function SoundSense() {
                   {currentAnalysis.predictedFailure && (
                     <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 mb-4">
                       <div className="flex items-center gap-2 text-orange-400 font-medium mb-2">
-                        <span>⏰</span> Panne prédite
+                        <span>⏰</span> Predicted failure
                       </div>
                       <div className="text-white">
                         <strong>{currentAnalysis.predictedFailure.component}</strong>
-                        <span className="text-white/60"> dans </span>
+                        <span className="text-white/60"> in </span>
                         <strong>{currentAnalysis.predictedFailure.timeframe}</strong>
                       </div>
                     </div>
@@ -365,7 +365,7 @@ export default function SoundSense() {
 
                   {/* Findings */}
                   <div className="mb-4">
-                    <div className="text-sm text-white/60 mb-2">Détails de l&apos;analyse</div>
+                    <div className="text-sm text-white/60 mb-2">Analysis details</div>
                     <div className="space-y-2">
                       {currentAnalysis.findings.map((finding, i) => (
                         <div key={i} className={`flex items-start gap-3 p-3 rounded-lg ${getSeverityColor(finding.severity)}`}>
@@ -384,7 +384,7 @@ export default function SoundSense() {
 
                   {/* Recommendations */}
                   <div className="mb-4">
-                    <div className="text-sm text-white/60 mb-2">Recommandations</div>
+                    <div className="text-sm text-white/60 mb-2">Recommendations</div>
                     <ul className="space-y-1">
                       {currentAnalysis.recommendations.map((rec, i) => (
                         <li key={i} className="text-white flex items-start gap-2">
@@ -403,7 +403,7 @@ export default function SoundSense() {
                     }}
                     className="w-full py-3 bg-blue-500 hover:bg-blue-400 text-white rounded-xl font-medium transition-colors"
                   >
-                    🔄 Nouvelle analyse
+                    🔄 New analysis
                   </button>
                 </div>
               ) : (
@@ -411,16 +411,16 @@ export default function SoundSense() {
                   <div className="text-6xl mb-4">{selectedAppliance.icon}</div>
                   <div className="text-white font-medium mb-2">{selectedAppliance.name}</div>
                   <div className="text-white/60 text-sm mb-6">
-                    Durée d&apos;écoute : ~{selectedAppliance.listenDuration} secondes
+                    Listening time: ~{selectedAppliance.listenDuration} seconds
                   </div>
                   <div className="text-white/50 text-sm mb-6 max-w-xs mx-auto">
-                    Place ton téléphone à ~30cm de l&apos;appareil en fonctionnement, puis lance l&apos;analyse.
+                    Place your phone ~30cm from the running appliance, then start the analysis.
                   </div>
                   <button
                     onClick={startRecording}
                     className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold text-lg hover:opacity-90 transition-opacity"
                   >
-                    🎙️ Commencer l&apos;écoute
+                    🎙️ Start listening
                   </button>
                 </div>
               )}
@@ -430,13 +430,13 @@ export default function SoundSense() {
 
         {/* How it works */}
         <div className="mt-12">
-          <h2 className="text-xl font-semibold text-white mb-6 text-center">Comment ça marche ?</h2>
+          <h2 className="text-xl font-semibold text-white mb-6 text-center">How it works</h2>
           <div className="grid grid-cols-4 gap-4">
             {[
-              { step: '1', icon: '📱', title: 'Place ton téléphone', desc: 'À ~30cm de l\'appareil en fonctionnement' },
-              { step: '2', icon: '🎵', title: 'On écoute', desc: 'L\'IA capture les signatures sonores' },
-              { step: '3', icon: '🧠', title: 'Analyse IA', desc: 'Comparaison avec 10 000+ patterns' },
-              { step: '4', icon: '📊', title: 'Diagnostic', desc: 'Problèmes détectés + recommandations' }
+              { step: '1', icon: '📱', title: 'Place your phone', desc: '~30cm from the running appliance' },
+              { step: '2', icon: '🎵', title: 'We listen', desc: 'AI captures sound signatures' },
+              { step: '3', icon: '🧠', title: 'AI analysis', desc: 'Comparison with 10,000+ patterns' },
+              { step: '4', icon: '📊', title: 'Diagnosis', desc: 'Issues detected + recommendations' }
             ].map((item, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
@@ -459,25 +459,25 @@ export default function SoundSense() {
             onClick={e => e.stopPropagation()}
           >
             <div className="p-4 border-b border-white/10 flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-white">Historique des analyses</h3>
+              <h3 className="text-lg font-semibold text-white">Analysis history</h3>
               <button onClick={() => setShowHistory(false)} className="text-white/50 hover:text-white text-2xl">×</button>
             </div>
             <div className="p-4 space-y-3">
               {recordings.length === 0 ? (
-                <p className="text-white/50 text-center py-8">Aucune analyse enregistrée</p>
+                <p className="text-white/50 text-center py-8">No recorded analysis</p>
               ) : (
                 recordings.map(rec => (
                   <div key={rec.id} className={`p-3 rounded-lg border ${getStatusColor(rec.analysis?.status || 'healthy')}`}>
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-medium">{rec.appliance}</span>
                       <span className="text-xs opacity-70">
-                        {new Date(rec.timestamp).toLocaleDateString('fr-FR')}
+                        {new Date(rec.timestamp).toLocaleDateString('en-US')}
                       </span>
                     </div>
                     <div className="text-sm opacity-80 capitalize">
-                      {rec.analysis?.status === 'healthy' ? '✅ Sain' :
-                       rec.analysis?.status === 'warning' ? '⚠️ Attention' :
-                       '🚨 Critique'}
+                      {rec.analysis?.status === 'healthy' ? '✅ Healthy' :
+                       rec.analysis?.status === 'warning' ? '⚠️ Warning' :
+                       '🚨 Critical'}
                     </div>
                   </div>
                 ))

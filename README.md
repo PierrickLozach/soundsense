@@ -1,33 +1,33 @@
 # SoundSense 🔊
 
-**Diagnostic d'appareils ménagers par analyse sonore IA**
+**AI-powered appliance diagnostics via sound analysis**
 
-Prototype Board Session — 29 juin 2026
+Board Session Prototype — June 29, 2026
 
 ## Concept
 
-Une app qui utilise le micro de ton téléphone pour détecter les problèmes sur tes appareils électroménagers AVANT qu'ils ne tombent en panne. Économise des centaines d'euros en réparations d'urgence.
+An app that uses your phone's microphone to detect problems with your home appliances BEFORE they fail. Save hundreds in emergency repair costs.
 
 ## Features
 
-- **6 appareils supportés** : Réfrigérateur, Lave-linge, Sèche-linge, Lave-vaisselle, Climatisation, Chaudière
-- **Analyse IA simulée** avec détection d'anomalies sonores
-- **Prédiction de pannes** avec timeframe et urgence
-- **Recommandations** personnalisées
-- **Historique** des analyses (localStorage)
+- **6 supported appliances**: Refrigerator, Washing Machine, Dryer, Dishwasher, Air Conditioner, Boiler
+- **Simulated AI analysis** with sound anomaly detection
+- **Failure prediction** with timeframe and urgency
+- **Personalized recommendations**
+- **Analysis history** (localStorage)
 
 ## Value Proposition
 
-- €320 économie moyenne/an
-- 89% précision diagnostic
-- 2-4 semaines d'alerte avant panne
-- 30 secondes d'analyse
+- $320 average savings/year
+- 89% diagnostic accuracy
+- 2-4 weeks warning before failure
+- 30 seconds analysis time
 
-## Monétisation
+## Monetization
 
-- Freemium : 3 analyses/mois gratuites
-- Premium : analyses illimitées + historique complet
-- B2B : API pour assureurs, SAV, fabricants
+- Freemium: 3 analyses/month free
+- Premium: unlimited analyses + full history
+- B2B: API for insurers, service centers, manufacturers
 
 ## Tech Stack
 
@@ -44,4 +44,4 @@ npm run dev -- -p 3002
 
 ## Source
 
-Inspiré par GitHub (FluidVoice), forums maintenance industrielle
+Inspired by GitHub (FluidVoice), industrial maintenance forums
